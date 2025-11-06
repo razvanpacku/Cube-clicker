@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Cube clicker</title>
+
+        <meta charset="utf-8">
+        <meta name="author" content="razvanpacku">
+        <meta name="description" content="Classic incremental game with a cube theme">
+        <meta name="keywords" content="incremental">
+
+        <base href=""> 
+
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <header>Cube Clicker</header>
+        <nav id="navBar">
+            <a href="https://github.com/razvanpacku">GitHub</a>
+            <a href=https://twitter.com/razvanpacku>Twitter</a>
+        </nav>
+        <main class="mainGrid">
+            <div class="mainGridElement" id="cubeSection">
+                <div id="numberCubes">
+                    <div id="totalNumber"></div>
+                    <div id="numberPerSecond"></div>
+                </div>
+                <div id="cubeAnchor">
+                    <div class="cube idle">
+                        <div class="cube__face cube__face--front"></div>
+                        <div class="cube__face cube__face--back"></div>
+                        <div class="cube__face cube__face--right"></div>
+                        <div class="cube__face cube__face--left"></div>
+                        <div class="cube__face cube__face--top"></div>
+                        <div class="cube__face cube__face--bottom"></div>
+                      </div>
+                </div>
+            </div>
+            <div class="mainGridElement" id="MenusSection">
+                <div class="menuGrid">
+                    <div id="tips">Tips go here</div>
+                    <button id="optionsButton">Options</button>
+                    <div class="submenu_container">
+                        <button id="statsButton">Stats</button>
+                        <ul class ="submenu">
+                            <li><button id="generalButton">General</button></li>
+                            <li><button id="unlocksButton">Unlocks</button></li>
+                        </ul>
+                    </div>
+                    <button id="changelogButton">Changelog</button>
+                    <button id="infoButton">Info</button>
+                </div>
+                <div id="menu">
+                </div>
+            </div>
+            <div class="mainGridElement" id="buySection">
+                <div class="buySubsection" id="upgrades">
+                    <div class="upgradeGrid">
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                        <div class="upgradeCellContainer">
+                            <div class="upgradeCell">test</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buySubsection" id="buyables">
+                    <div id="buyablesList"></div>
+                </div>
+            </div>
+        </main>
+        <footer class="index">Version 0.0.5</footer>
+    </body>
+</html>

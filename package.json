@@ -1,0 +1,20 @@
+{
+  "name": "cuber_clicker",
+  "version": "0.0.8",
+  "description": "Incremental game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "incremental",
+    "game"
+  ],
+  "author": "razvanpacku",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.2"
+  }
+}

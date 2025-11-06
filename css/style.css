@@ -1,0 +1,730 @@
+
+body {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #dddddd;
+    margin: 0px;
+}
+
+button {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+    background-color: #eeeeee;
+    padding: 0px;
+    margin: 0px;
+    height: 1em;
+    font-size: 3em;
+}
+
+#navBar {
+    height: 1em;
+    padding: 0px;
+    margin: 0px;
+    background-color: #aaaaaa;
+    font-size: 2em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);;
+}
+
+#navBar a{
+    text-align: center;
+}
+
+#navBar a:link{
+    color: #555555;
+}
+
+#navBar a:visited{
+    color: #222222;
+}
+
+.mainGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    position: fixed;
+    inset: 5em 0px 0px 0px;
+}
+
+.mainGrid .mainGridElement + .mainGridElement {
+    border-left: solid 10px #eeeeee;
+}
+
+.mainGridELement {
+}
+
+#cubeSection {
+    background-image: linear-gradient(to top, #000000, #aaaaaa);
+    background-color: #555555;
+    background-size: 200% 200%;
+    background-position: bottom;
+    animation-timing-function: ease-in;
+}
+
+#numberCubes {
+    text-align: center;
+    color: #ffffff;
+    margin: 1em auto;
+    width: fit-content;
+    background-image: linear-gradient(to top, rgba(255,255,255,0) 10%, #aaaaaa 30%, rgba(255,255,255,0) 60%);
+}
+
+#totalNumber {
+    font-size: 4em;
+}
+
+#cubeAnchor {
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
+    margin: auto;
+    margin-top: 10vw;
+}
+
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    user-select: none;
+}
+
+@keyframes cube180_1 {
+    0%{
+        transform: translateZ(-5vw) rotate3d(1, 1, 1, 45deg);
+    }
+    100%{
+        transform: translateZ(-5vw) rotate3d(1, 1, 1, 225deg);
+    }
+    
+}
+
+@keyframes cube180_2 {
+    0%{
+        transform: translateZ(-5vw) rotate3d(1, 1, 1, 225deg);
+    }
+    100%{
+        transform: translateZ(-5vw) rotate3d(1, 1, 1, 405deg);
+    }
+    
+}
+
+@keyframes easter_egg_1 {
+    0%{
+        background-position: bottom;
+    }
+    100%{
+        background-position: top;
+    }
+}
+
+@keyframes easter_egg_2 {
+    0%{
+        background-position: top;
+    }
+    100%{
+        background-position: bottom;
+    }
+}
+
+.cube.idle {
+    transform: translateZ(-5vw) rotate3d(1, 1, 1, 45deg);
+}
+
+.cube.rotated{
+    transform: translateZ(-5vw) rotate3d(1, 1, 1, 225deg);
+}
+
+.cube.spin1 {
+    animation: cube180_1 0.5s forwards ease-in-out;
+}
+
+.cube.spin2 {
+    animation: cube180_2 0.5s forwards ease-in-out;
+}
+
+.cube__face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 100%;
+}
+
+.cube__face--front  {
+    transform: rotateY(  0deg) translateZ(100px);
+    background-color: #ff0000;
+}
+.cube__face--back   {
+    transform: rotateY(180deg) translateZ(100px);
+    background-color: #00ff00;
+}
+.cube__face--right  {
+    transform: rotateY( 90deg) translateZ(100px);
+    background-color: #ffff00;
+}
+.cube__face--left   {
+    transform: rotateY(-90deg) translateZ(100px);
+    background-color: #00ffff;
+}
+.cube__face--top    {
+    transform: rotateX( 90deg) translateZ(100px);
+    background-color: #00ff;
+}
+.cube__face--bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+    background-color: #ff00ff;
+}
+
+@media only screen and (max-width: 1000px){
+    #cubeAnchor {
+        width: 20vw;
+        height: 20vw;
+        perspective: 60vw;
+        margin-top: 10vw;
+    }
+
+    .cube {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        user-select: none;
+    }
+
+    .cube__face {
+        position: absolute;
+        width: 20vw;
+        height: 20vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 100%;
+    }
+
+    .cube__face--front  {
+        transform: rotateY(  0deg) translateZ(10vw);
+        background-color: #ff0000;
+    }
+    .cube__face--back   {
+        transform: rotateY(180deg) translateZ(10vw);
+        background-color: #00ff00;
+    }
+    .cube__face--right  {
+        transform: rotateY( 90deg) translateZ(10vw);
+        background-color: #ffff00;
+    }
+    .cube__face--left   {
+        transform: rotateY(-90deg) translateZ(10vw);
+        background-color: #00ffff;
+    }
+    .cube__face--top    {
+        transform: rotateX( 90deg) translateZ(10vw);
+        background-color: #00ff;
+    }
+    .cube__face--bottom {
+        transform: rotateX(-90deg) translateZ(10vw);
+        background-color: #ff00ff;
+    }
+}
+
+.menuGrid{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    text-align: center;
+    place-items: center;
+    border-bottom: solid 10px #eeeeee;
+}
+
+.menuGrid button {
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    background-color: #eeeeee;
+}
+
+.menuGrid button:hover {
+    background-color: #aaaaaa;
+    transition: 0.5s;
+}
+
+.submenu_container {
+    position: relative;
+    width: 100%;
+}
+
+ul.submenu {
+    position: absolute;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;
+    background-color: transparent;
+    width: 100%;
+    display: block;
+}
+
+.submenu_container:hover > ul.submenu {
+    visibility: visible;
+}
+
+.submenu li {
+    width: 100%;
+    border-top: 4px solid rgba(255,255,255,0);
+}
+
+ul.submenu li:nth-child(even) button {
+    border-radius: 100px 0px 100px 0px;
+}
+
+ul.submenu li:nth-child(odd) button {
+    border-radius: 0px 100px 0px 100px;
+}
+
+@keyframes dropdown{
+    0% {
+        transform: scaleY(0);
+        opacity: 0%;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 100%;
+    }
+}
+
+#tips {
+    grid-area: 1 / 2 / 3 / 3; 
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#optionsButton { 
+    grid-area: 1 / 1 / 2 / 2;
+    border-bottom-right-radius: 100px;
+}
+
+#statsButton {
+    grid-area: 2 / 1 / 3 / 2;
+    border-top-right-radius: 100px;
+}
+
+#changelogButton {
+    grid-area: 1 / 3 / 2 / 4;
+    border-bottom-left-radius: 100px;
+}
+
+#infoButton {
+    grid-area: 2 / 3 / 3 / 4;
+    border-top-left-radius: 100px;
+}
+
+#menu {
+    overflow-y: scroll;
+    border: 0px;
+}
+
+#menuContent {
+    padding: 0px 10px;
+}
+
+#menu h1{
+    text-align: center;
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+    max-width: 500px;
+    min-width: fit-content;
+    margin: 0.5em auto;
+    padding-bottom: 0.2em;;
+}
+
+#menu h2{
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+    max-width: 100px;
+    min-width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0.5em;
+}
+
+#menu #exitButton{
+    background-color: #eeeeee;
+    width: 3em;
+    height: 3em;
+    top: 0;
+    left: 0;
+    border: 0px;
+    padding:0px;
+    border-bottom-right-radius: 100px;
+    background-image: url(images/exit.png);
+}
+
+#menu #exitButton:hover{
+    background-color: #ffffff;
+    background-image: url(images/exitHover.png);
+}
+
+#menu mark {
+    color: #555555;
+    background-color: transparent;
+}
+
+#menu .optionContainer {
+    margin-top: 1em;
+}
+
+#menu .optionButton {
+    border: 0px;
+    background-color: #eeeeee;
+}
+
+#menu .optionButton:hover {
+    background-color: #ffffff;
+}
+
+#menu .sensitiveOption {
+    background-image: linear-gradient(to top, #ff0000 , rgba(255,255,255,0) 50%);
+}
+
+#menu #columnGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1em;
+}
+
+@media only screen and (max-width: 1000px){
+    #menu #columnGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+#menu #columnGrid .unlockGrid {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, 58px);
+}
+
+.columnGridContainer::before {
+    background-color: #eeeeee;
+    font-size: 1vw;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1000px){
+    .columnGridContainer::before {
+        font-size: 2vw;
+    }
+}
+
+#upgr.columnGridContainer::before {
+    content: "Upgrades";
+}
+
+#achv.columnGridContainer::before {
+    content: "Achievements";
+}
+
+.unlockGrid .upgradeCellContainer {
+    width: 58px;
+    height: 58px;
+    background-image: radial-gradient(rgba(255,255,255,0) 69%, #aaaaaa 69%);
+}
+
+.unlockGrid .upgradeCellContainer:hover {
+    width: 58px;
+    height: 58px;
+    background-image: radial-gradient(rgba(255,255,255,0) 69%, #cccccc 69%);
+}
+
+.unlockGrid .upgradeCell {
+    width: 40px;
+    height: 40px;
+    margin: 9px auto;
+}
+
+#menu .optionSlider {
+    -webkit-appearance: none;
+    background-color: #eeeeee;
+    margin: 0px;
+    height: 2em;
+}
+
+#menu .optionSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #ffffff;
+  cursor: pointer;
+  height: 2em;
+  width: 2em;
+}
+
+@supports selector(::-webkit-scrollbar) {
+    ::-webkit-scrollbar {
+        width: 12px;
+        background-color: #dddddd;
+    }
+      
+    ::-webkit-scrollbar-thumb {
+        background: #eeeeee;
+    }
+    
+    ::-webkit-scrollbar-button:single-button:decrement{
+        background: linear-gradient(to top, #eeeeee, #dddddd);
+    }
+    
+    ::-webkit-scrollbar-button:single-button:increment{
+        background: linear-gradient(to bottom, #eeeeee, #dddddd);
+    }
+}
+
+#buySection {
+    overflow-y: scroll;
+}
+
+#buySection::before {
+    content: "Store";
+    font-size: 4em;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+
+.buySubsection::before{
+    background-color: #eeeeee;
+    font-size: 2em;
+    display: block;
+    text-align: center;
+}
+
+#upgrades {
+    min-height: 100px;
+}
+
+#upgrades::before {
+    content: "Upgrades";
+}
+
+.upgradeGrid {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, 58px);
+    max-height: 116px;
+    overflow-y: hidden;
+}
+
+.upgradeGrid:hover {
+    max-height: 580px;
+    overflow-y: scroll;
+}
+
+.upgradeGrid .upgradeCellContainer {
+    width: 58px;
+    height: 58px;
+    background-image: radial-gradient(rgba(255,255,255,0) 69%, #aaaaaa 69%);
+}
+
+.upgradeGrid .upgradeCellContainer:hover {
+    width: 58px;
+    height: 58px;
+    background-image: radial-gradient(rgba(255,255,255,0) 69%, #cccccc 69%);
+}
+
+.upgradeGrid .upgradeCell {
+    width: 40px;
+    height: 40px;
+    margin: 9px auto;
+}
+
+.infoDiv {
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 200px;
+    min-height: 100px;
+    border: 4px solid #aaaaaa;
+    background-color: #eeeeee;
+    z-index: 10;
+}
+
+#buyables::before {
+    content: "Buyables";
+}
+
+#buyablesList figure{
+    padding: 0px 4px 4px 0px;
+    margin: 0px;
+    border: outset 4px #aaaaaa;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    transition: background-color 0.5s, color 0.2s;
+}
+
+#buyablesList figure:hover{
+    background-color: #eeeeee;
+    color: #555555;
+    border: outset 4px #dddddd;
+}
+
+#buyablesList figcaption{
+    padding: 5px;
+}
+
+#buyablesList figcaption > h1{
+    padding: 0px;
+    margin: 0px;
+    font-size: 2em;
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+}
+
+footer a:link {
+    color: #ffffff;
+}
+
+footer a:visited {
+    color: #dddddd;
+}
+
+body.changelog{
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(to top, #000000, #555555)
+}
+
+#changelogMenu {
+    overflow-y: scroll;
+    border: 0px;
+    margin: auto;
+    max-width: 900px;
+    width: 50vw;
+    background-color: #dddddd;
+}
+
+#changelogMenu h1{
+    text-align: center;
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+    max-width: 500px;
+    min-width: fit-content;
+    margin: 0.5em auto;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+}
+
+#changelogMenu h2{
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+    max-width: 100px;
+    min-width: fit-content;
+    padding-left: 10px;
+    margin: 0.5em;
+}
+
+#changelogMenu article {
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+    max-width: 600px;
+    min-width: fit-content;
+    margin-bottom: -1em;
+}
+
+#changelogMenu article + article {
+    border-top: 1em solid #aaaaaa;
+}
+
+#changelogMenu mark {
+    color: #555555;
+    background-color: transparent;
+}
+
+#loginMenu {
+    overflow-y: scroll;
+    margin: auto;
+    min-width: 500px;
+    max-width: 50vw;
+    height: 100%;
+    background-color: #dddddd;
+}
+
+#loginMenu h1 {
+    text-align: center;
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+    max-width: 500px;
+    min-width: fit-content;
+    margin: 0.5em auto;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+}
+
+#formContainer {
+    margin: 10em auto;
+    width: 50%;
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+}
+
+#formContainer form {
+    background-image: linear-gradient(to top, #eeeeee, rgba(255, 255, 255, 0));
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2em;
+}
+
+.optionContainer2 {
+    margin-bottom: 1em;
+    display: inline-flex;
+}
+
+.optionContainer2 input {
+    width: 50%;
+}
+
+.optionContainer2 div {
+    width: 50%;
+    text-align: center;
+}
+
+#formContainer form button {
+    width: fit-content;
+    margin: 0em auto;
+    border: 0px;
+    background-color: #cccccc;
+}
+
+#formContainer form button:hover {
+    background-color: #dddddd;
+}
+
+#formContainer input {
+    border: 0;
+}
+
+#formContainer input[type='radio'] {
+    width: 25%;
+}
+
+#loginInfo {
+    min-height: 100px;
+}
