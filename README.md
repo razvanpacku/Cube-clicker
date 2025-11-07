@@ -4,6 +4,8 @@ Cube Clicker is a simple incremental game in the style of Cookie Clicker, built 
 
 This project is a vertical slice demo of a typical clicker game, including one buyable, and a few upgrades and achievements relating to it.
 
+![preview](docs/preview.png)
+
 ## Features
 - Click to earn cubes, buyables, upgrades and achievements.
 - Persistent saves (local + server accounts).
