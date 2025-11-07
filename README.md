@@ -1,6 +1,6 @@
 # Cube Clicker
 
-Cube CLicker is a simple incremental game in the style of Cookie Clicker, built with Node + Express and vanilla JS.
+Cube Clicker is a simple incremental game in the style of Cookie Clicker, built with Node + Express and vanilla JS.
 
 This project is a vertical slice demo of a typical clicker game, including one buyable, and a few upgrades and achievements relating to it.
 
